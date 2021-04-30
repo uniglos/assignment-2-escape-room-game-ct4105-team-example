@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Escape_Room.unity
+    guid: 63993ca0c275df549939182653b248c9
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_Car_Escape.unity
+    guid: c4eaa864a0b4132478f3b97ad1dcd390
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_Picture_Frame.unity
+    guid: 8f6599c82728143468beeeac9a6be649
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_Platformer.unity
+    guid: 011712f4835bfd945ba8708f8b3ef4c8
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_Tilt_Maze.unity
+    guid: 262be49f5b0eb43419b67f2c1659ae0e
   m_configObjects: {}
