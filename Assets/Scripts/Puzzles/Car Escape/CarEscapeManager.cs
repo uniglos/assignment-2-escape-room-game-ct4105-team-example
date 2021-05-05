@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WinZoneScript : MonoBehaviour {
+public class CarEscapeManager : MonoBehaviour {
 
 	// Reference to WinText game object
 	public Text winText;
+
+	public ParticleSystem successParticleEffect;
+
+	public GameObject continueButton;
 
 	public string nameOfPuzzle, escapeRoomGameScene;
 
@@ -15,6 +19,7 @@ public class WinZoneScript : MonoBehaviour {
 	void Start () {
 		// Turn "You Win!" sign at the start
 		winText.gameObject.SetActive ( false );
+
 	}
 
 	// If target car (red one) exits the playground
@@ -29,8 +34,24 @@ public class WinZoneScript : MonoBehaviour {
 
 		PlayerPrefs.Save();
 
-		SceneManager.LoadScene( escapeRoomGameScene );  
+		successParticleEffect.Play();
 
+		continueButton.gameObject.SetActive ( true );
 
 	}
+
+	public void moveToNextScene()
+	{
+
+		SceneManager.LoadScene( escapeRoomGameScene );  
+
+	}
+
+	public void RestartScene()
+	{
+
+		SceneManager.LoadScene ( SceneManager.GetActiveScene().buildIndex );
+
+	}
+
 }
