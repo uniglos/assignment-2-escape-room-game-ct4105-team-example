@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PuzzleManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<string> puzzleNames;
 
+    public TextMeshProUGUI combinationLock;
+
+    private string lockCode;
+
     void Start()
     {
 
+        lockCode = combinationLock.text;
+
+        combinationLock.text = "";
+        
         createPuzzleList();
 
     }
@@ -36,6 +45,8 @@ public class PuzzleManager : MonoBehaviour
     public void checkPuzzleStatus()
     {
 
+        int numberOfPuzzlesComplete = 0;
+
         foreach( string puzzle in puzzleNames)
         {
 
@@ -45,12 +56,16 @@ public class PuzzleManager : MonoBehaviour
             {
 
                 status = "Complete";
+
+                numberOfPuzzlesComplete++;
                 
             }
             
             print( "Puzzle " + puzzle + " is: " + status);
 
         }
+    
+        combinationLock.text = lockCode.Substring( 0, numberOfPuzzlesComplete );
 
     }
 
